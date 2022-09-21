@@ -12,16 +12,16 @@ void setup() {
 }
 
 void loop() {
-  toggle = toggle_state(toggle); // toggle = 1
+  toggle = toggle_state(toggle); // toggle = 0
   digitalWrite(PIN_LED, toggle); // LED 킴
   delay(1000); // 1초 기달리기
   
   for(int i = 0; i < 10; ++i) { // 0.1초 씩 10번
-    toggle = toggle_state(toggle); // toggle = 0, 1, 0, 1, 0, 1, 0, 1, 0, 1
+    toggle = toggle_state(toggle); // toggle = 1, 0, 1, 0, 1, 0, 1, 0, 1, 0
     digitalWrite(PIN_LED, toggle)  // LED 끔, 킴, 끔, 킴, 끔, 킴, 끔, 킴, 끔 ,킴
     delay(100);
   }
-  toggle = toggle_state(toggle); // toggle = 0
+  toggle = toggle_state(toggle); // toggle = 1
   digitalWrite(PIN_LED, toggle); // LED 끔
   
   while(1){
