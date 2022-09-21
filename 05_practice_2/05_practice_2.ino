@@ -8,56 +8,21 @@ void setup() {
     ; // wait for serial port to connect.
   }
   toggle = 1;
-  digitalWrite(PIN_LED, toggle); //turn off LED.
+  digitalWrite(PIN_LED, toggle);
 }
 
 void loop() {
-  toggle = toggle_state(toggle); //toggle : 0
-  digitalWrite(PIN_LED, toggle); //LED on
-  delay(1000); //wait for 1,000 milliseconds 
-  toggle = toggle_state(toggle); //toggle : 1
-  digitalWrite(PIN_LED, toggle); //LED off
-  delay(100);
-
-  toggle = toggle_state(toggle); //toggle : 0
-  digitalWrite(PIN_LED, toggle); //LED on
-  delay(100);  
-  toggle = toggle_state(toggle); //toggle : 1
-  digitalWrite(PIN_LED, toggle); //LED off
-  delay(100);
-  Serial.println("1");
-
-  toggle = toggle_state(toggle); //toggle : 0
-  digitalWrite(PIN_LED, toggle); //LED on
-  delay(100);
-  toggle = toggle_state(toggle); //toggle : 1
-  digitalWrite(PIN_LED, toggle); //LED off
-  delay(100);
-  Serial.println("2");
-
-  toggle = toggle_state(toggle); //toggle : 0
-  digitalWrite(PIN_LED, toggle); //LED on
-  delay(100);
-  toggle = toggle_state(toggle); //toggle : 1
-  digitalWrite(PIN_LED, toggle); //LED off
-  delay(100);
-  Serial.println("3");
-
-  toggle = toggle_state(toggle); //toggle : 0
-  digitalWrite(PIN_LED, toggle); //LED on
-  delay(100);
-  toggle = toggle_state(toggle); //toggle : 1
-  digitalWrite(PIN_LED, toggle); //LED off
-  delay(100);
-  Serial.println("4");
-
-  toggle = toggle_state(toggle); //toggle : 0
-  digitalWrite(PIN_LED, toggle); //LED on
-  delay(100);
-  toggle = toggle_state(toggle); //toggle : 1
-  digitalWrite(PIN_LED, toggle); //LED off
-  Serial.println("5");
+  toggle = toggle_state(toggle); // toggle = 1
+  digitalWrite(PIN_LED, toggle); // LED 킴
+  delay(1000); // 1초 기달리기
   
+  for(int i = 0; i < 10; ++i) { // 0.1초 씩 10번
+    toggle = toggle_state(toggle); // toggle = 0, 1, 0, 1, 0, 1, 0, 1, 0, 1
+    digitalWrite(PIN_LED, toggle)  // LED 끔, 킴, 끔, 킴, 끔, 킴, 끔, 킴, 끔 ,킴
+    delay(100);
+  }
+  toggle = toggle_state(toggle); // toggle = 0
+  digitalWrite(PIN_LED, toggle); // LED 끔
   
   while(1){
 
